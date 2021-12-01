@@ -1,3 +1,8 @@
+/*
+Advent of Code Day 1 
+Link to question: https://adventofcode.com/2021/day/1
+*/
+
 const fs = require('fs');
 const read = fs.readFileSync('input.txt');
 let data = read.toString().split('\n').map(Number);

@@ -1,3 +1,6 @@
+# Advent of Code Day 1
+# Link to question: https://adventofcode.com/2021/day/1
+
 def get_inputs_from_file() -> list:
     return [int(j) for j in open('input.txt', 'r').read().strip().split('\n')]
 
