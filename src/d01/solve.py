@@ -2,7 +2,7 @@
 # Link to question: https://adventofcode.com/2021/day/1
 
 def get_inputs_from_file() -> list:
-    return [int(j) for j in open('input.txt', 'r').read().strip().split('\n')]
+    return [int(j) for j in open('dumpy.txt', 'r').read().strip().split('\n')]
 
 
 def part_one(depths):
@@ -14,15 +14,15 @@ def part_one(depths):
     return count
 
 
-    def part_two(depths):
-        count = 0
-        prev = sum(depths[0:3])
+def part_two(depths):
+    count = 0
+    prev = sum(depths[0:3])
 
-        for i in range(1, len(depths)-2):
-            if sum(depths[i:i+3]) > prev:
-                count += 1
-            prev = sum(depths[i:i+3])
-        return count
+    for i in range(1, len(depths)-2):
+        if sum(depths[i:i+3]) > prev:
+            count += 1
+        prev = sum(depths[i:i+3])
+    return count
 
 
 def main():
