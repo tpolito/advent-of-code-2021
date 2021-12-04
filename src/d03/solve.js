@@ -25,16 +25,28 @@ let exampleData = [
 ].map((x) => x.split(''));
 
 const partOne = (reports) => {
-  let gamma = reports
-    .reduce((pre, cur) => pre.map((e, i) => e + cur[i]))
-    .map((e) => {
-      return e.split('').reduce((pre, cur) => parseInt(pre) + parseInt(cur));
-    })
-    .map((e) => (e > reports.length / 2 ? 1 : 0));
+  let z = 0;
+  let gamma = '';
+  let epsilon = '';
 
-  let epsilon = gamma.map((e) => (e === 0 ? 1 : 0));
+  for (let i = 0; i < reports[0].length; i++) {
+    z = 0;
+    for (let j = 0; j < reports.length; j++) {
+      if (reports[j][i] == '0') {
+        z += 1;
+      }
+    }
 
-  return parseInt(gamma.join(''), 2) * parseInt(epsilon.join(''), 2);
+    if (z > reports.length * 0.5) {
+      gamma += '0';
+      epsilon += '1';
+    } else {
+      gamma += '1';
+      epsilon += '0';
+    }
+  }
+
+  return parseInt(gamma, 2) * parseInt(epsilon, 2);
 };
 
 const partTwo = (reports) => {
@@ -72,5 +84,5 @@ const partTwo = (reports) => {
   return o2 * co2;
 };
 
-console.log(partOne(data));
-console.log(partTwo(data));
+console.log(partOne(data) === 841526); //841526
+console.log(partTwo(data) === 4790390); //4790390
