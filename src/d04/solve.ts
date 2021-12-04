@@ -20,6 +20,8 @@ function partOne(input: string): number {
   }
 }
 
+function partTwo(intput: string): number {}
+
 function markBoard(board: tboard, num: number) {
   board.forEach((row, i) => {
     row.forEach((tile, j) => {
