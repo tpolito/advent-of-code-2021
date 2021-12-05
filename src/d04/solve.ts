@@ -20,7 +20,22 @@ function partOne(input: string): number {
   }
 }
 
-function partTwo(intput: string): number {}
+function partTwo(input: string): number {
+  const { boards, numbers } = parseInput(input);
+
+  for (let num of numbers) {
+    for (let i = 0; i < boards.length; i++) {
+      let board = boards[i];
+      markBoard(board, num);
+      if (checkBoardForWin(board)) {
+        if (boards.length === 1) {
+          return tallyBoard(board) * num;
+        }
+        boards.splice(i, 1);
+      }
+    }
+  }
+}
 
 function markBoard(board: tboard, num: number) {
   board.forEach((row, i) => {
@@ -80,4 +95,5 @@ function chunk(array: any[], size: number): any[] {
   return res;
 }
 
-console.log(partOne(inputFile)); // 38594
+// console.log(partOne(inputFile)); // 38594
+console.log(partTwo(inputFile)); // 21184
