@@ -1,5 +1,5 @@
-const fs = require("fs");
-const inputFile = fs.readFileSync("input.txt", "utf-8").split(",").map(Number);
+const fs = require('fs');
+const inputFile = fs.readFileSync('input.txt', 'utf-8').split(',').map(Number);
 const exampleData = [3, 4, 3, 1, 2];
 
 function solve(input: number[], days: number): number {
@@ -18,5 +18,5 @@ function solve(input: number[], days: number): number {
   return cal.reduce((a, b) => a + b, 0);
 }
 
-console.log("Part1: ", solve(inputFile, 80));
-console.log("Part1: ", solve(inputFile, 256));
+console.log('Part1: ', solve(inputFile, 80)); // 345793
+console.log('Part2: ', solve(inputFile, 256)); // 1572643095893
